@@ -1,0 +1,12 @@
+#signupForm {
+    display: inline-grid;
+}
+
+#signupForm > [name="confirmPassword"], [name="username"], [name="email"] {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+#signupForm > [for="password"] {
+    margin-bottom: 0.5rem;
+}
