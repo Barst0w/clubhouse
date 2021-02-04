@@ -1,12 +1,11 @@
 <%- include('./partials/header') %> 
 
-<% if (currentUser) { %> 
-    <p>Welcome back friend</p>
-    <a href="/logout">Logout</a>
-<%} else {%> 
-    <p>Log in or Sign up</p>
-    <a href="/signup">Sign Up</a>
-    <a href="/login">Login</a>
-<% } %>
+<div id="homeContent">
+    <h1>Welcome to Clubhouse</h1>
+    <h2>Sign up to make a message. Use the secret password to see the authors of messages.</h2>
+    <div id="posts">
+        <h1>Posts:</h1>
+    </div>
+</div>
 
 <%- include('./partials/footer') %> 

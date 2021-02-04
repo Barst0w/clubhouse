@@ -1,4 +1,10 @@
-#signupForm {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0;
+}
+
+#signupForm, #messageForm {
     display: inline-grid;
 }
 
@@ -9,4 +15,70 @@
 
 #signupForm > [for="password"] {
     margin-bottom: 0.5rem;
+}
+
+#messageForm > [name="messageTitle"], [name="messageText"] {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto';
+    width: 100%;
+    height: 3rem;
+    background-color: powderblue;
+}
+
+#navbar > ul, li, a {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar p {
+    display: inline-block;
+    margin: 0 1rem 0 1rem;
+}
+
+.navBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: auto;
+    background-color: lightcoral;
+    text-decoration: none;
+    color: black;
+    margin: 0 1rem 0 1rem;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+#homeContent {
+    font-family: 'Roboto';
+    background-color: lightgrey;
+}
+
+#homeContent > h2 {
+    font-weight: normal;
+}
+
+#homeContent > h1, h2 {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 1rem 0;
+    margin: 0;
+}
+
+#posts {
+    background-color: plum;
+}
+
+#posts > h1 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem 0 1rem 0;
 }

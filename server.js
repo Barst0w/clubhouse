@@ -8,9 +8,12 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs")
 const Schema = mongoose.Schema;
 
+// It's loading slow because of the font, it's taking too long to import. Fix it, somehow.
+
 const indexRouter = require('./routes/index')
 const signupRouter = require('./routes/signup')
 const loginRouter = require('./routes/login')
+const createmessageRouter = require('./routes/createmessage')
 
 const mongoDb = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@clubhouse.9hzm1.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -27,13 +30,15 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'))
 
-app.use('/', loginRouter.set_currentUser)
+app.use(loginRouter.set_currentUser)
 
-app.use('/', indexRouter)
+app.use('/', indexRouter.get_index)
 app.use('/', signupRouter.get_signup)
 app.use('/', loginRouter.get_login)
+app.use('/', createmessageRouter.get_createmessage)
 
 app.post('/signup', signupRouter.post_signup)
 app.post('/login', loginRouter.post_login)
+app.post('/createmessage', createmessageRouter.post_createmessage)
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

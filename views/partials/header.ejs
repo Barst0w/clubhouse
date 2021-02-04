@@ -8,4 +8,22 @@
 </head>
 <body>
     <header>
+        <div id="navbar">
+            <% if (currentUser) { %> 
+                <p><%= currentUser.username %></p>
+                <ul>
+                    <li><a href="/" class="navBtn">Home</a></li>
+                    <li><a href="/logout" class="navBtn">Logout</a></li>
+                    <li><a href="/createmessage" class="navBtn">Create a message</a></li>
+                </ul>
+            <%} else {%> 
+                <p>Log in or Sign up</p>
+                <ul>
+                    <li><a href="/" class="navBtn">Home</a></li>
+                    <li><a href="/signup" class="navBtn">Sign Up</a></li>
+                    <li><a href="/login" class="navBtn">Login</a></li>
+                </ul>
+            <% } %>
+            
+        </div>
     </header>
