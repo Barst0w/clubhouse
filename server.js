@@ -14,6 +14,7 @@ const indexRouter = require('./routes/index')
 const signupRouter = require('./routes/signup')
 const loginRouter = require('./routes/login')
 const createmessageRouter = require('./routes/createmessage')
+const secretPasswordRouter = require('./routes/secretpassword')
 
 const mongoDb = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@clubhouse.9hzm1.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -32,6 +33,7 @@ app.use(express.static('public'))
 
 app.use(loginRouter.set_currentUser)
 
+app.use('/', secretPasswordRouter.get_secretpassword)
 app.use('/', indexRouter.get_index)
 app.use('/', signupRouter.get_signup)
 app.use('/', loginRouter.get_login)
@@ -40,5 +42,6 @@ app.use('/', createmessageRouter.get_createmessage)
 app.post('/signup', signupRouter.post_signup)
 app.post('/login', loginRouter.post_login)
 app.post('/createmessage', createmessageRouter.post_createmessage)
+app.post('/secretpassword', secretPasswordRouter.post_secretpassword)
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

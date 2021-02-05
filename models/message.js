@@ -6,7 +6,8 @@ const message = mongoose.model(
     new Schema({
       messageTitle: {type: String, required: true},
       messageText: { type: String, required: true },
-      messageAuthor: {type: String, required: true}
+      messageAuthor: {type: String, required: true},
+      Date: {type: Date, required: true}
     })
   );
 

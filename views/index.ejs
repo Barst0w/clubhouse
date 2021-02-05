@@ -5,6 +5,18 @@
     <h2>Sign up to make a message. Use the secret password to see the authors of messages.</h2>
     <div id="posts">
         <h1>Posts:</h1>
+        <% message.forEach(message => { %>
+            <div class="message">
+                <% if (currentUser) { %> 
+                    <% if (currentUser.member) { %> 
+                        <p>Author: <%= message.messageAuthor %></p>
+                        <% } %> 
+                <% } %> 
+                <h1><%= message.messageTitle %></h1>
+                <p><%= message.messageText %></p>
+                <p class="dateText"><%= message.Date  %> </p>
+            </div>
+       <% }) %> 
     </div>
 </div>
 
